@@ -1,6 +1,51 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-<h1>Homepage</h1>
+<div class="home-img-div">
+    <img class="home-img" src="{% static 'img/cafe_img.jpg' %}" alt="">
+</div>
+<h1>Hello and welcome to Coder Cafe</h1>
+
+<h3>NEEDS ALOT MORE WORK. NOTHING REALLY DONE TO IT</h3>
+
+
+<h3>You have bla bla bla bl</h3>
+<div class="card-class">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    
+    
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    
+
+</div>
+
 {% endblock content %}

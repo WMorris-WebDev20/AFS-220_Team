@@ -4,6 +4,21 @@
 {% block content %}
 <div class="page">
     <h1>Menu page</h1>
+    <ul>
+        {% for item in menu %}
+        <li> 
+            <li> this is the name {{item.name}}</li>
+            <li> this is the description {{item.description}}</li>
+            <li> this is the price {{item.price}}</li>
+            <br><!-- just for spacing now -->
+
+        </li>
+       
+    
+        {% endfor %} 
+
+    </ul>
+   
 
 </div>
 

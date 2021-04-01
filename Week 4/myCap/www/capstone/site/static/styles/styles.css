@@ -13,48 +13,20 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 .holder{
-    margin: 0;
+    margin: 0;    
     display: grid;
     grid-template-columns: auto;    
     min-height: 100%;   
     grid-template-rows: .2fr 3fr .25fr; 
     
 }
-.header-background{
-    grid-column: 1/-1;
-    grid-row: 1;
-    margin:  0;
-}
+
 .page{
-    margin-top: 2vh;
+    margin-top: 1vh;
     padding-top: 2vh;
 }
-
-.home-img-div{
-    margin: 2vh auto;
-    text-align: center;    
-}
-
-.home-img {
-    height: 50vh;
-    box-shadow: 1px 1px 5px 2px rgb(32, 32, 32);
-}
-.card-class{
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 3vh;
-}
-.card{
-    box-shadow: 1px 1px 5px 2px rgb(32, 32, 32);
-}
-.header-message{
-    font-size: 5rem;
-    text-align: left;
-    padding: 0;
-    color: rgb(255, 217, 0);
-    text-shadow: 2px 2px #2e270a;
-    margin: 0;
-    padding: 5vh 0 0 2vh;
+ul{
+    list-style-type: none;
 }
 
 footer{
@@ -69,6 +41,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2vh 0 0;
 }
 .footer{    
     font-size: 1.5rem;
@@ -77,6 +50,10 @@ footer{
 
  
 @media only screen and (min-width: 300px) and (max-width: 500px){
+    .page{
+        margin-top: 2vh;
+        padding-top: 2vh;
+    }
     .footer{    
         font-size: 1rem;
         text-align: center;
@@ -86,13 +63,7 @@ footer{
   
  }
  @media only screen and (min-width: 1024px) and (max-width: 1440px){
-    .header{
-        height: 10vh;     
-    }
-    .header-message{
-        padding-top: 1vh;
-        font-size: 3rem;
-    }    
+
  }
 
  

@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.shortcuts import render
-from .models import Menu_Item , Service
+from .models import Menu_Item , Service, ContactData
 # Create your views here.
 
 from django import forms
@@ -22,10 +22,26 @@ class CateringPageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
-# class ContactPageView(TemplateView):
-#     template_name = 'contact.html'
+class EditMenuPageView(TemplateView):
+    template_name = 'editmenu.html'
 
 def menu(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+
+        menu_data = Menu_Item(name=name, description=description,price=price)
+
+        menu_data.save()
+    
+        menu = Menu_Item.objects.all()
+        
+        return render(request, "editmenu.html")
+        
+    else:
+         menu = Menu_Item.objects.all()
+         return render(request, "menu.html", {'menu': menu})
 
     menu = Menu_Item.objects.all()
     return render(request, "menu.html", {'menu': menu} )
@@ -40,17 +56,23 @@ class ContactForm(forms.Form):
 def contact(request):
      submitted = False
      if request.method == 'POST':
-         form = ContactForm(request.POST)
-         if form.is_valid():
-             cd = form.cleaned_data
-             # assert False
-             return HttpResponseRedirect('/contact?submitted=True')
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        contact_data = ContactData(name=name, email=email,subject=subject,message=message)
+
+        contact_data.save()
+
+        return render(request, 
+         'contact.html', {'submitted': True})
+
+        
      else:
-         form = ContactForm()
-         if 'submitted' in request.GET:
-             submitted = True
+         return render(request, 
+         'contact.html', {'submitted': False})
  
      return render(request, 
-         'contact.html', 
-         {'form': form, 'submitted': submitted}
+         'contact.html'
        )

@@ -1,13 +1,12 @@
-<!-- templates/home.html -->
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 <div class="page">
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid ">
         <div class="container">
-          <h1 class="display-4">Welcome to Coder's Cafe</h1>
-          <p class="lead">Please take a look aroud to see what we have to offer.</p>
+          <h1 class="display-4 text-white ">Welcome to Coder's Cafe</h1>
+          <h3 class="lead text-white text-center">Please take a look aroud to see what we have to offer.</h3>
         </div>
       </div>
     
@@ -24,12 +23,13 @@
     <div class="card-class">
         <div class="card" >
             <div class="card-body">
-            <img class="card-imge" src="{{item.img}}" alt="">
-              <h4 class="card-title">{{item.name}}</h4>          
-              <p class="card-text">{{item.description}}</p>
-              <h6 class="card-subtitle mb-2 text-muted">${{item.price}} per person</h6>
+                <img class="card-imge" src="{{item.img}}" alt="">
+                <h2 class="card-title">{{item.name}}</h2>          
+                <p class="card-text">{{item.description}}</p>
+                <h3 class="card-subtitle mb-2 text-muted">${{item.price}} per person</h3>
             </div>
-          </div>
+        </div>
+    </div>
     {% endfor %}    
          
     

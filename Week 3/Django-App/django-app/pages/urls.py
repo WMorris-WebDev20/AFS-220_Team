@@ -14,6 +14,8 @@ urlpatterns = [
     path('about/', AboutPageView.as_view(), name='about'), 
     # path('contact/', ContactPageView.as_view(), name='contact'), 
     path('contact/', views.contact, name='contact'),
+    path('order/', views.order, name='order'),
+    path('cart/', views.getcart, name='cart'),
 
      
 ]

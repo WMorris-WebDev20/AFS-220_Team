@@ -1,11 +1,12 @@
 # from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.shortcuts import render
-from .models import Menu_Item , Service, ContactData
+from .models import Menu_Item , Service, ContactData, Carts
 # Create your views here.
 
 from django import forms
 from django.http import HttpResponseRedirect
+from django.db import connection
  
 
 def home(request):
@@ -46,13 +47,6 @@ def menu(request):
     menu = Menu_Item.objects.all()
     return render(request, "menu.html", {'menu': menu} )
 
-
-class ContactForm(forms.Form):
-    yourname = forms.CharField(max_length=100, label='Your Name')
-    email = forms.EmailField(required=False, label='Your Email Address')
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
-
 def contact(request):
      submitted = False
      if request.method == 'POST':
@@ -76,3 +70,40 @@ def contact(request):
      return render(request, 
          'contact.html'
        )
+
+def order(request):
+    submitted = False
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        meat = request.POST.get('meat')
+        side1 = request.POST.get('side1')
+        side2 = request.POST.get('side2')
+        price = request.POST.get('price')
+
+        order_data = Carts(name=name,meat=meat, side1=side1, side2=side2,price=price)
+
+        order_data.save()
+        return render(request, 
+         'oeder.html', {'submitted': True})
+
+        
+    else:
+         return render(request, 
+         'order.html', {'submitted': False})
+ 
+    return render(request, 
+         'order.html'
+       )
+
+def getcart(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')        
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT name, meat, side1, side2, price FROM pages_carts WHERE name = %s", [name])
+            data = cursor.fetchone()
+            # keys = ('name', 'meat', 'side1', 'side2', 'price')
+            # data_dictionary = {keys[i] : data[i] for i, _ in enumerate(data)}
+            
+            
+        return render(request, 'cart.html', {'name': data[0], 'meat': data[1], 'side1': data[2], 'side2': data[3], 'price': data[4]})
+    return render(request, 'cart.html')

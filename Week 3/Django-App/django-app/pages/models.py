@@ -19,6 +19,7 @@ class Service(models.Model):
     description = models.TextField()
     price = models.FloatField()    
     img = models.CharField(max_length=300)
+    url = models.CharField(max_length=300, default="")
 
     def save(self,*args, **kwargs ):
         self.price = round(self.price , 2)
@@ -32,6 +33,16 @@ class ContactData(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=100)
     message = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class Carts(models.Model):
+    name = models.CharField(max_length = 100)
+    meat = models.CharField(max_length = 100)
+    side1 = models.CharField(max_length = 100)
+    side2 = models.CharField(max_length = 100)
+    price = models.CharField(max_length = 100)
 
     def __str__(self):
         return self.name

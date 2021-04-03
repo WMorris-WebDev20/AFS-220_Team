@@ -17,13 +17,9 @@ class Menu_Item(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=200) 
     description = models.TextField()
-    price = models.FloatField()    
+    price = models.CharField(max_length=300)    
     img = models.CharField(max_length=300)
     url = models.CharField(max_length=300, default="")
-
-    def save(self,*args, **kwargs ):
-        self.price = round(self.price , 2)
-        super(Service, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name

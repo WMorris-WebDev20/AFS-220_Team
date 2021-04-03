@@ -84,7 +84,7 @@ def order(request):
 
         order_data.save()
         return render(request, 
-         'oeder.html', {'submitted': True})
+         'order.html', {'submitted': True})
 
         
     else:

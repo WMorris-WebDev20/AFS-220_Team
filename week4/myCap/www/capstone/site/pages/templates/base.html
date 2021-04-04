@@ -29,34 +29,35 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <a class=" brand text-decoration-none " href="{% url 'home' %}">Coder Cafe</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link h3 "  href="{% url 'home' %}">Home |<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link h3"  href="{% url 'menu' %}">Menu</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link h3"  href="{% url 'catering' %}">Catering</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link h3"  href="{% url 'about' %}">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link h3"  href="{% url 'contact' %}">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link h3"  href="{% url 'order' %}">Order</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link h3"  href="{% url 'cart' %}">Cart</a>
-                  </li>
-                  {% if user.is_authenticated %}
-                  <li class="nav-item"><a class="nav-link h3"  href="{% url 'editmenu' %}">  | Add Items</a></li> 
-                  {% endif %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link h3 "  href="{% url 'home' %}">Home |<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown text-decoration-none">
+                        <a class="nav-link dropdown-toggle h3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Ordering
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item h3"  href="{% url 'menu' %}">Menu</a>
+                          <a class="dropdown-item h3" href="{% url 'catering' %}">Catering</a>
+                          <a class="dropdown-item h3" href="{% url 'order' %}">Online Order</a>
+                        </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link h3"  href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h3"  href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h3"  href="{% url 'cart' %}">Cart</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link h3"  href="{% url 'editmenu' %}">  | Add Items</a></li> 
+                    {% endif %}
 
               </ul>
             </div>

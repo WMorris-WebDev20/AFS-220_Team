@@ -92,7 +92,7 @@ def order(request):
          'order.html', {'submitted': False})
  
     return render(request, 
-         'order.html'
+         'order.html', {'submitted': False}
        )
 
 def getcart(request):
@@ -101,6 +101,6 @@ def getcart(request):
         with connection.cursor() as cursor:
             cursor.execute("SELECT name, meat, side1, side2, price FROM pages_carts WHERE name = %s", [name])
             data = cursor.fetchone()            
-            
-        return render(request, 'cart.html', {'name': data[0], 'meat': data[1], 'side1': data[2], 'side2': data[3], 'price': data[4]})
+            price = int(data[4]) * 20
+        return render(request, 'cart.html', {'name': data[0], 'meat': data[1], 'side1': data[2], 'side2': data[3], 'count': data[4], 'show': True, 'price': price})
     return render(request, 'cart.html')

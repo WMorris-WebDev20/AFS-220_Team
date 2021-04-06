@@ -1,9 +1,9 @@
 version: "2"
 
 services: 
-  django-apache:
+  william-kipp-django-apache:
     build: .
-    container_name: django-apache-app
+    container_name: william-Kkipp-django-apache
     ports:
       - '8005:80'
     volumes: 

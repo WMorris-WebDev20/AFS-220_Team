@@ -101,6 +101,10 @@ ul{
 .email{
   border-bottom: 3px solid #fff;
 }
+footer{
+	grid-column: 1/ -1;
+	grid-row: 3;
+}
 .footer ul li a {
 	padding: 0 0 12px 0;
 	display: block;
@@ -131,7 +135,6 @@ ul{
 	background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
 	box-shadow: 0 1px 0 #B4B3B3;
 }
-
 
 .footer a {
 	color: #78828D

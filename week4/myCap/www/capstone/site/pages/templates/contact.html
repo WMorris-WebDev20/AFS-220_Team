@@ -3,12 +3,13 @@
 {% block title %}Contact Us{% endblock title %}
 {% block content %}
 <div class="container">
-    <h1 class="text-center page-title">Contact us</h1>
+    <h1 class="text-center page-title">Have a question?</h1>
   
     {% if submitted %}
    <p class="note text-center">Your message was submitted successfully. Thank you!</p>
  
     {% else %}
+    <h2 class="mb-5 text-center">We would love to hear from you!</h2>
     <form class="contact-form" action="{% url 'contact' %}" method="post" >
         {% csrf_token %}
         <div class="form-group">

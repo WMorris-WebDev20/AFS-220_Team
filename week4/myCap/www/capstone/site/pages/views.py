@@ -100,7 +100,12 @@ def getcart(request):
         name = request.POST.get('name')        
         with connection.cursor() as cursor:
             cursor.execute("SELECT name, meat, side1, side2, price FROM pages_carts WHERE name = %s", [name])
-            data = cursor.fetchone()            
+            data = cursor.fetchone() 
+            
+        if data is not None:
             price = int(data[4]) * 20
-        return render(request, 'cart.html', {'name': data[0], 'meat': data[1], 'side1': data[2], 'side2': data[3], 'count': data[4], 'show': True, 'price': price})
+            return render(request, 'cart.html', {'name': data[0], 'meat': data[1], 'side1': data[2], 'side2': data[3], 'count': data[4], 'show': True, 'price': price})
+        else:
+            return render(request, 'cart.html', { 'nodata': True})
+
     return render(request, 'cart.html')

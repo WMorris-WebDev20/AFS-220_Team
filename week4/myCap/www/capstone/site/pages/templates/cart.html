@@ -13,7 +13,10 @@
         </div>           
           <button type="submit" class="btn btn-primary mb-2">Search</button>   
       </form>
-      {% if show %}
+      {% if nodata %}
+    <p class="note text-center mt-5 text-danger">Please enter another name!</p>
+  
+    {% elif show %}
     <div class="cart-div">
         <table class="cart-table">
             <tr >

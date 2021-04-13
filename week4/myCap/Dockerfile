@@ -12,6 +12,6 @@ RUN ln /usr/bin/pip3 /usr/bin/pip
 RUN pip install --upgrade pip
 RUN pip install django ptvsd
 ADD ./coder_cafe_site.conf /etc/apache2/sites-available/000-default.conf
-EXPOSE 80 3500
+EXPOSE 80
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 

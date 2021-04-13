@@ -3,13 +3,19 @@
 {% block title %}Contact Us{% endblock title %}
 {% block content %}
 <div class="container">
-    <h1 class="text-center page-title">Have a question?</h1>
+    <div class="jumbotron jumbotron-fluid " style="height: 25vh; background-image: url(https://images.unsplash.com/photo-1557318041-1ce374d55ebf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cXVlc3Rpb25zfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); background-position: center;">
+
+        <div class="container">
+            <h1 class="display-4 text-white ">Got Questions</h1>
+            <h3 class="lead text-white text-center">Send us a message!</h3>
+            <h3 class="lead text-white text-center">We would love to hear form you!</h3>
+        </div>
+    </div>
   
     {% if submitted %}
    <p class="note text-center">Your message was submitted successfully. Thank you!</p>
  
     {% else %}
-    <h2 class="mb-5 text-center">We would love to hear from you!</h2>
     <form class="contact-form" action="{% url 'contact' %}" method="post" >
         {% csrf_token %}
         <div class="form-group">

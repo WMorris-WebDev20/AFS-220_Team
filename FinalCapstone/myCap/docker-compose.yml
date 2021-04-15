@@ -1,0 +1,10 @@
+version: "3"
+
+services: 
+  william-kipp-django-apache:
+    build: .
+    container_name: william-kipp-django-apache
+    ports:
+      - '8005:80'
+    volumes: 
+      - ./www:/var/www/html

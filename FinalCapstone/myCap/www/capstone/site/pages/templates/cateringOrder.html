@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Order Form{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron jumbotron-fluid " style="height: 25vh; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),url(https://images.unsplash.com/photo-1555244162-803834f70033?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0ZXJpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);background-repeat: no-repeat; background-size: cover;">
+
+        <div class="container">
+            <h1 class="display-4 text-white ">Catering Order</h1>
+            <h3 class="lead text-white text-center">Place your order now!</h3>
+        </div>
+    </div>
+
+    {% if submitted %}
+        <p class="note text-center">Your Order has been submitted successfully. Thank you!</p>
+
+    {% else %}
+        <form class="contact-form" action="{% url 'order' %}" method="post" >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="cateringOrderForm">Company Name</label>
+                <input type="text" class="form-control" id="cateringOrderForm" placeholder="Company Name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="cateringOrderForm">Choose Meat</label>
+                
+                <select name = "meat"class="form-control">
+                    <option value="">Choose meat</option>
+                    {% for item in menu %}            
+                    <option value="{{item.name}}"">{{item.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cateringOrderForm">Side One</label>
+                <select name = "side1"class="form-control">
+                    <option value="">Choose side</option>
+                    {% for item in side %}            
+                        <option value="{{item.name}}"">{{item.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cateringOrderForm">Side Two</label>
+                <select name = "side2"class="form-control">
+                    <option value="">Choose side</option>
+                    {% for item in side %}            
+                        <option value="{{item.name}}"">{{item.name}}</option>
+                    {% endfor %}
+                </select>
+            </div> 
+
+            <div class="form-group">
+                <label for="cateringOrderForm"">Number of people</label>
+                <input style="display:block;" type="number" name="price" min="10" max="300" step="10" placeholder="Up to 300">
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-2">Submit order</button> 
+              
+        </form> 
+    {% endif %}   
+</div>  
+
+{% endblock %}

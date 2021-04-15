@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron jumbotron-fluid " style="height: 25vh; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),url(https://images.unsplash.com/photo-1480455454781-1af590be2a58?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2F0ZXJpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); background-repeat: no-repeat; background-size: cover; background-position: center 60%;">
+
+        <div class="container">
+            <h1 class="display-4 text-white ">Catering</h1>
+            <h3 class="lead text-white text-center">We will serve all your catering needs!</h3>
+        </div>
+        
+    </div>
+
+    <h1>We Will love to cater to your party</h1>
+    <p class="h3">Our catering service will ensure that your guests are well taken care of. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sint nihil vitae voluptas quaerat. Laborum sapiente a ab ipsam perferendis, dolores ipsa pariatur magni fugiat iusto aperiam laboriosam nihil! Quibusdam.</p>
+    <p class="h3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, eaque esse magni iure repudiandae minus voluptas voluptatibus commodi, temporibus nam, soluta quia rem nisi incidunt inventore voluptates deserunt nulla cupiditate.</p>
+   <button type="submit" class="btn btn-primary mb-2" onclick="location.href='{% url 'cateringOrder' %}'">Order Now</button> 
+
+</div>
+
+{% endblock %}

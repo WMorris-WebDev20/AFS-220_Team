@@ -2,9 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-# class Menu_List(models.Model):
-#     name = models.CharField(max_length=200)
-
 class Menu_Item(models.Model):
     name = models.CharField(max_length=200) 
     description = models.TextField()
@@ -38,6 +35,12 @@ class Carts(models.Model):
     side1 = models.CharField(max_length = 100)
     side2 = models.CharField(max_length = 100)
     price = models.CharField(max_length = 100)
+
+    def __str__(self):
+        return self.name
+
+class Side(models.Model):
+    name = models.CharField(max_length = 100)
 
     def __str__(self):
         return self.name

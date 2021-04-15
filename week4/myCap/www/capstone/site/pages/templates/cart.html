@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <div class="jumbotron jumbotron-fluid " style="height: 25vh; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),url(https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvcHBpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); background-position: center 75%;">
+    <div class="jumbotron jumbotron-fluid " style=" background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),url(https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvcHBpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); background-position: center 75%; background-repeat: no-repeat; background-size: cover;">
 
         <div class="container">
             <h1 class="display-4 text-white ">Find Your Cart</h1>
@@ -16,8 +16,8 @@
               </form>
         </div>
     </div>
-      {% if nodata %}
-    <p class="note text-center mt-5 text-danger">Please enter another name!</p>
+    {% if nodata %}
+        <p class="note text-center mt-5 text-danger">Please enter another name!</p>
   
     {% elif show %}
     <div class="cart-div">
@@ -28,28 +28,36 @@
                 <td></td>
             </tr>
             <tr>
+                <td></td>
                 <td class="item-count">{{count}} X</td>
-                <td class="item">{{meat}}</td>
+                <td class="item text-left" >{{meat}}</td>
                 <td></td>
             </tr>
             <tr>
+                <td></td>
                 <td class="item-count">{{count}} X</td>
-                <td class="item">{{side1}}</td>
+                <td class="item text-left">{{side1}}</td>
                 <td></td>
             </tr>
             <tr>
+                <td></td>
                 <td class="item-count">{{count}} X</td>
-                <td class="item">{{side2}}</td>
+                <td class="item text-left">{{side2}}</td>
                 <td></td>
             </tr>
-            <tr class="sub-total">
+            <tr style=" border: none; box-shadow: inset 3px 3px 20px 3px rgb(145, 144, 144),
+            1px 1px 1px 1px rgb(149, 151, 149),
+            -1px -1px 1px 1px rgb(149, 151, 149),
+            inset -3px -3px 20px 3px rgb(145, 144, 144);" class="sub-total">
                 <td></td>
-                <td class= "total-count">Total:</td>
-                <td class="count">$ {{price}}.00</td>
+                <td></td>
+                <td ></td>
+                <td class="count">Total: $ {{price}}.00</td>
             </tr>
 
         </table>
     </div>
     {% else %}
+    
     {% endif %}
 {% endblock %}

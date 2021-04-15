@@ -2,27 +2,27 @@
 {% block title %}Order Form{% endblock title %}
 {% block content %}
 <div class="container">
-    <div class="jumbotron jumbotron-fluid " style="height: 25vh; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),url(https://images.unsplash.com/photo-1509315703195-529879416a7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8b3JkZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); background-repeat: no-repeat; background-size: cover;">
+    <div class="jumbotron jumbotron-fluid " style="height: 25vh; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),url(https://images.unsplash.com/photo-1555244162-803834f70033?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0ZXJpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);background-repeat: no-repeat; background-size: cover;">
 
         <div class="container">
-            <h1 class="display-4 text-white ">Order Online</h1>
+            <h1 class="display-4 text-white ">Catering Order</h1>
             <h3 class="lead text-white text-center">Place your order now!</h3>
         </div>
     </div>
+
     {% if submitted %}
-    <p class="note text-center">Your Order has been submitted successfully. Thank you!</p>
-  
+        <p class="note text-center">Your Order has been submitted successfully. Thank you!</p>
+
     {% else %}
-    <h1></h1>
         <form class="contact-form" action="{% url 'order' %}" method="post" >
             {% csrf_token %}
             <div class="form-group">
-                <label for="orderForm">Name</label>
-                <input type="text" class="form-control" id="orderForm" placeholder="Name" name="name">
+                <label for="cateringOrderForm">Company Name</label>
+                <input type="text" class="form-control" id="cateringOrderForm" placeholder="Company Name" name="name">
             </div>
-            
+
             <div class="form-group">
-                <label for="orderForm">Choose Meat</label>
+                <label for="cateringOrderForm">Choose Meat</label>
                 
                 <select name = "meat"class="form-control">
                     <option value="">Choose meat</option>
@@ -31,9 +31,9 @@
                     {% endfor %}
                 </select>
             </div>
-
+            
             <div class="form-group">
-                <label for="orderForm">Side One</label>
+                <label for="cateringOrderForm">Side One</label>
                 <select name = "side1"class="form-control">
                     <option value="">Choose side</option>
                     {% for item in side %}            
@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-group">
-                <label for="orderForm">Side Two</label>
+                <label for="cateringOrderForm">Side Two</label>
                 <select name = "side2"class="form-control">
                     <option value="">Choose side</option>
                     {% for item in side %}            
@@ -53,12 +53,12 @@
             </div> 
 
             <div class="form-group">
-                <label for="orderForm">Number of people</label>
-                <input style="display:block;" type="number" name="price" min="1" max="300" placeholder="Up to 300">
+                <label for="cateringOrderForm"">Number of people</label>
+                <input style="display:block;" type="number" name="price" min="10" max="300" step="10" placeholder="Up to 300">
             </div>
 
-            <button type="submit" class="btn btn-primary mb-2">Submit order</button>   
-
+            <button type="submit" class="btn btn-primary mb-2">Submit order</button> 
+              
         </form> 
     {% endif %}   
 </div>  

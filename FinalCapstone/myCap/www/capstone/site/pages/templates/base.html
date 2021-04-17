@@ -71,37 +71,36 @@
         <div class="footer" id="footer">
             <div class="container">
                 <div class="row ">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <h4> Coder Cafe </h4>
+                    <div class="text-center col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <h4> Coder Lounge and Cafe </h4>
                     </div>
-                    <div class="col-lg-3 col-sm-2 col-xs-3">
-                        <h3><a class="text-white" href="{% url 'contact' %}" style="margin-top: 5em">Contact </a> </h3>
-                        <ul>
-                            <li><a class="email"href="#"> info@codercafe.com </a></li>
-                            <br/>
-                            <li> <p> 1234 Coder Cafe Rd </p> </li>
-                            <li> <p> Coder, USA </p> </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-sm-2 col-xs-3">
-                        <ul>
-                            <li> <h5> <a href="{% url 'about' %}" style="margin-top: 5em"> ABOUT US</a> <h5></li>
+                    <div class="col-lg-4 col-md-4 col-sm-6 row-xs-4 mt-lg-2 mt-md-2 pt-lg-2 pt-md-2 ">
+                        <ul class="d-flex justify-content-around">
+                            <li> <h5> <a href="{% url 'about' %}" class="mt-2 mt-0"> ABOUT US</a> <h5></li>
                             <li> <h5><a href="{% url 'menu' %}"> MENU </a> <h5></li>
                             <li> <h5><a href="{% url 'order' %}"> ORDER</a> <h5></li>
                             <li> <h5><a href="{% url 'cart' %}"> CART </a> <h5></li>
                         </ul>
+                        <div class=" text-center col-lg-12 col-md-8 col-sm-8 col-xs mt-lg-2 mt-md-2 pt-lg-2 pt-md-2 ">
+                            <h3 class="text-white mt-0 pt-0"><a  href="{% url 'contact' %}" >Contact </a> </h3>
+                            <ul>
+                                <li><a class="email"href="#"> info@codercafe.com </a></li>
+                                <br/>
+                                <li> <p> 1234 Coder Cafe Rd </p> </li>
+                                <li> <p> Coder, USA </p> </li>
+                            </ul>
+                        </div>
+                        
                     </div> 
             </div>
-        </div>
-                                
+        </div>                                
         <div class="footer-bottom">
             <div class="container">
                 <p class="pull-left copyright"> Copyright © Coder Cafe 2021. All right reserved. </p>
             
             </div>
-        </div> 
-    
-    </footer>  
+        </div>    
+    </footer> 
       
       <div class="second-row">
         {% block content %}
